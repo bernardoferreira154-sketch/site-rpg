@@ -11,22 +11,14 @@ const observer = new IntersectionObserver((entries, obs) => {
 
 elements.forEach((element) => observer.observe(element));
 
-
-
-
-
-
 document.querySelector(".logo").addEventListener("click", () => {
     document.querySelectorAll(".hidden").forEach(e => {
         e.classList.remove("hidden");
     });
     document.querySelectorAll(".login, .signup").forEach(e => {
-        e.classList.add("hidden")
-    })
-
+        e.classList.add("hidden");
+    });
 });
-
-
 
 function mostrarPagina(el) {
     el.classList.remove("hidden");
@@ -49,13 +41,12 @@ document.querySelector(".log_in").addEventListener("click", () => {
 
 const inputEmail = document.querySelector(".e-mail");
 const inputPassword = document.querySelector(".pswrd");
-const btnGoogle = document.querySelector(".SignUpWGoogle");
 
-const addClassBtnGoogle = () => { document.querySelector(".SignUpWGoogle").classList.add("sobreselecionado");}
-const removeClassBtnGoogle = () => { document.querySelector(".SignUpWGoogle").classList.remove("sobreselecionado");}
+const addClassBtnGoogle = () => { document.querySelector(".SignUpWGoogle")?.classList.add("sobreselecionado"); }
+const removeClassBtnGoogle = () => { document.querySelector(".SignUpWGoogle")?.classList.remove("sobreselecionado"); }
 
-inputEmail.addEventListener('focus', addClassBtnGoogle);
-inputEmail.addEventListener('blur', removeClassBtnGoogle);
+inputEmail?.addEventListener('focus', addClassBtnGoogle);
+inputEmail?.addEventListener('blur', removeClassBtnGoogle);
 
-inputPassword.addEventListener('focus', addClassBtnGoogle);
-inputPassword.addEventListener('blur', removeClassBtnGoogle);
+inputPassword?.addEventListener('focus', addClassBtnGoogle);
+inputPassword?.addEventListener('blur', removeClassBtnGoogle);
