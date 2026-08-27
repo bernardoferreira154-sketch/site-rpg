@@ -1,0 +1,33 @@
+:root {
+    /* BASE */
+    --background: #0c0c0c;
+    --bg-degrade: linear-gradient(180deg, #040404 0%, #0d0d0d 100%);
+    --surface: #242424;
+    --surface-transparent:rgba(15, 15, 15, 0.9);
+    --surface-hover: #2D2D2D;
+    --border: #202020e5;
+    --border-hover: #585858;
+    --border-hover-transparent: #58585875;
+  
+    /* TEXTOS*/
+    --text-title: #F5F1E8;      /* títulos grandes */
+    --text-primary: #D9D6CF;    /* textos principais */
+    --text-secondary: #A6A4A0;  /* descrições */
+    --text-muted: #77756F;      /* textos apagados */
+  
+    /* DOURADO DOS ELEMENTOS */
+    --gold-primary: #C89B3C;    /* logo, links, destaques */
+    --gold-hover: #DDB052;
+    --gold-dark: #9C7528;
+  
+    /* BOTÕES */
+        
+    --button-primary: #D4A72C;
+    --button-primary-text: #1A1A1A;
+  
+    --button-secondary-bg: transparent;
+    --button-secondary-border: #D4A72C;
+    --button-secondary-text: #D4A72C;
+
+}
+
