@@ -897,220 +897,500 @@ body{
    RESPONSIVO
    ===================================================== */
 
-/* Tablets grandes / notebooks pequenos */
-@media (max-width: 1100px) {
-    .top, .bottom{
+/*
+   DESKTOP
+   -----------------------------------------------------
+   Nada abaixo deste ponto altera o layout desktop.
+   O layout original continua sendo usado acima de 1100px.
+*/
+
+
+/* =====================================================
+   NOTEBOOKS / TABLETS GRANDES
+   ===================================================== */
+
+   @media (max-width: 1100px) {
+
+    .top,
+    .bottom {
         width: 92%;
     }
 
-    .top{
+    .top {
         gap: 60px;
     }
+
 }
 
-/* Tablets: empilha as colunas da seção "Archivum" */
+
+/* =====================================================
+   TABLETS
+   ===================================================== */
+
 @media (max-width: 900px) {
-    .top{
+
+    .top {
         flex-direction: column;
         text-align: center;
         gap: 24px;
     }
 
-    .psec2{
-        max-width: 500px;
+    .h1sec2 {
+        width: 100%;
+        text-align: center;
     }
 
-    .bottom{
+    .psec2 {
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
+    }
+
+    .bottom {
+        width: 100%;
         flex-direction: column;
         gap: 40px;
     }
 
-    .hrsec2{
+    .hrsec2 {
         width: 60%;
         max-width: 300px;
         height: 1px;
     }
 
-    .imgsec2, .img2sec2{
-        max-width: 280px;
-    }
-
-    .textprinc{
+    .textprinc {
         margin-top: clamp(120px, 28vh, 260px);
     }
 
-    .sec2{
+    .sec2 {
         margin-top: clamp(100px, 22vh, 260px);
+        padding: 30px 20px;
     }
 
-    .mockup{
-        width: 90%;
+    /*
+       Mantém o mockup no tablet.
+       A remoção acontece somente em celulares.
+    */
+    .mockup {
+        width: min(90%, 850px);
         height: auto;
         margin: auto;
     }
 
-    .imgsec2{
+    .imgsec2 {
         width: 100%;
+        max-width: 100%;
         height: auto;
     }
 
-    .buttonMKP{
-        width: 90%;
+    .buttonMKP {
+        width: 100%;
         gap: 12px;
+        justify-content: center;
     }
 
-    .buttonMKP button{
-        height: 42px;
-        font-size: .9rem;
+    .buttonMKP button {
+        width: 70px;
+        height: 70px;
+        flex-shrink: 0;
     }
-    
+
 }
 
-/* Celulares grandes */
+
+/* =====================================================
+   CELULARES GRANDES
+   ===================================================== */
+
 @media (max-width: 640px) {
-    .navbar{
-        padding: 8px 16px;
+
+    /* -------------------------
+       NAVBAR
+       ------------------------- */
+
+    .navbar {
+        width: calc(100% - 24px);
+        padding: 8px 14px;
         height: auto;
         min-height: 50px;
+        margin-top: 12px;
         border-radius: 16px;
         gap: 10px;
     }
 
-    .links{
+    .links {
         display: none;
     }
 
-    .logo{
+    .logo {
         flex: none;
+        min-width: 0;
     }
 
-    .botoes{
+    .botoes {
         flex: none;
         margin-left: auto;
-        gap: 10px;
+        gap: 8px;
     }
 
-    .imglogo{
-        width: 46px;
+    .imglogo {
+        width: 42px;
     }
 
-    .txtlogo{
+    .txtlogo {
         font-size: 15px;
     }
 
-    .sign_up, .log_in{
+    .sign_up,
+    .log_in {
         width: auto;
-        min-width: 84px;
+        min-width: 78px;
         height: 36px;
-        padding: 0 14px;
-        font-size: 13px;
-    }
-
-    .landingpage{
-        width: 90%;
-    }
-
-    .h1l{
-        margin-top: 30px;
-    }
-
-    .h1sec2{
-        text-align: center;
-    }
-
-    .psec2{
-        text-align: center;
-    }
-
-    .imgsec2, .img2sec2{
-        max-width: 220px;
-    }
-
-    .signup{
-        padding: 30px 20px;
-    }
-
-    .bottom{
-        display:flex;
-        justify-content:center;
-    }
-
-    .mockup{
-        width:95%;
-        border-radius:18px;
-    }
-
-    .imgsec2{
-        width:100%;
-        display:block;
-    }
-
-    .buttonMKP{
-        width:92%;
-        bottom:20px;
-        gap:10px;
-    }
-
-    .buttonMKP button{
-        height:40px;
-        font-size:.85rem;
-    }
-
-
-
-}
-
-/* Celulares pequenos */
-@media (max-width: 400px) {
-    .imglogo{
-        width: 38px;
-    }
-
-    .txtlogo{
-        font-size: 13px;
-    }
-
-    .sign_up, .log_in{
-        min-width: 74px;
+        padding: 0 12px;
         font-size: 12px;
+    }
+
+
+    /* -------------------------
+       LANDING
+       ------------------------- */
+
+    .landingpage {
+        width: 100%;
+        padding: 0 16px;
+    }
+
+    .textprinc {
+        width: 100%;
+        padding: 0;
+        margin-top: clamp(120px, 25vh, 220px);
+    }
+
+    .h1l {
+        width: 100%;
+        margin-top: 30px;
+        padding: 0 8px;
+        font-size: clamp(27px, 8vw, 40px);
+    }
+
+    .h2l {
+        width: 100%;
         padding: 0 10px;
+        font-size: clamp(14px, 4vw, 18px);
+        line-height: 1.5;
     }
 
-    .textprinc{
-        margin-top: clamp(110px, 26vh, 200px);
+
+    /* -------------------------
+       IMAGEM PRINCIPAL
+       ------------------------- */
+
+    .imgprinc {
+        width: 115%;
+        max-width: none;
     }
 
-    .sec2{
-        margin-top: clamp(90px, 20vh, 200px);
+
+    /* -------------------------
+       SEÇÃO 2
+       ------------------------- */
+
+    .sec2 {
+        width: 100%;
+        margin-top: clamp(100px, 20vh, 180px);
+        padding: 30px 0;
+        gap: 40px;
     }
 
-    .mockup{
-        width:100%;
+    .top {
+        width: 100%;
+        gap: 20px;
     }
 
-    .buttonMKP{
-        flex-direction:column;
-        width:85%;
-        left:50%;
-        transform:translateX(-50%);
+    .h1sec2 {
+        font-size: clamp(30px, 9vw, 42px);
+        text-align: center;
     }
 
-    .buttonMKP button{
-        width:100%;
+    .psec2 {
+        max-width: 100%;
+        padding: 0 6px;
+        font-size: 14px;
+        line-height: 1.7;
+        text-align: center;
     }
+
+
+    /* -------------------------
+       REMOVE O MOCKUP
+       ------------------------- */
+
+    .mockup {
+        /*
+           O mockup deixa de existir visualmente
+           no celular.
+        */
+        display: contents;
+    }
+
+    /*
+       A imagem deixa de depender do mockup
+       para definir seu tamanho.
+    */
+
+    .bottom {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .imgsec2 {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 0;
+        border-radius: 0;
+    }
+
+
+    /* -------------------------
+       BOTÕES
+       ------------------------- */
+
+    .buttonMKP {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+    }
+
+    .lbry,
+    .prjt,
+    .prjts {
+        width: 58px;
+        height: 58px;
+        border-radius: 14px;
+        flex-shrink: 0;
+    }
+
+
+    /* -------------------------
+       LOGIN / SIGNUP
+       ------------------------- */
+
+    .signup,
+    .login {
+        width: 100%;
+        padding: 30px 16px;
+    }
+
+    .imglogosu,
+    .imglogoli {
+        width: 150px;
+        max-width: 55vw;
+    }
+
+    .h1su,
+    .h1li {
+        max-width: 340px;
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    .create {
+        width: 100%;
+    }
+
+
+    /* -------------------------
+       FOOTER
+       ------------------------- */
+
+    .entire_footer {
+        margin-top: 180px;
+    }
+
+    .footer {
+        width: 100%;
+        padding: 40px 20px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 35px 25px;
+    }
+
+    .footer a {
+        white-space: normal;
+        font-size: 13px;
+    }
+
+    .footer h3 {
+        font-size: 14px;
+    }
+
+    .entire_footer img {
+        width: 120vw;
+        top: -20%;
+    }
+
 }
 
-img{
+
+/* =====================================================
+   CELULARES PEQUENOS
+   ===================================================== */
+
+@media (max-width: 400px) {
+
+    .navbar {
+        width: calc(100% - 16px);
+        padding: 7px 10px;
+        margin-top: 8px;
+    }
+
+    .imglogo {
+        width: 36px;
+    }
+
+    .txtlogo {
+        font-size: 13px;
+    }
+
+    .sign_up,
+    .log_in {
+        min-width: 68px;
+        height: 34px;
+        padding: 0 9px;
+        font-size: 11px;
+    }
+
+
+    .textprinc {
+        margin-top: clamp(105px, 24vh, 190px);
+    }
+
+    .h1l {
+        font-size: clamp(25px, 8.5vw, 34px);
+    }
+
+    .h2l {
+        font-size: 13px;
+    }
+
+
+    .sec2 {
+        margin-top: clamp(80px, 18vh, 170px);
+        padding-top: 20px;
+    }
+
+    .h1sec2 {
+        font-size: 30px;
+    }
+
+    .psec2 {
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+
+    /*
+       Continua sem mockup.
+    */
+
+    .mockup {
+        display: contents;
+    }
+
+    .imgsec2 {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    .buttonMKP {
+        gap: 9px;
+    }
+
+    .lbry,
+    .prjt,
+    .prjts {
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+    }
+
+
+    .footer {
+        grid-template-columns: 1fr 1fr;
+        padding: 35px 16px;
+        gap: 30px 18px;
+    }
+
+}
+
+
+/* =====================================================
+   TELAS MUITO ESTREITAS
+   ===================================================== */
+
+@media (max-width: 340px) {
+
+    .txtlogo {
+        display: none;
+    }
+
+    .sign_up,
+    .log_in {
+        min-width: 62px;
+        padding: 0 7px;
+        font-size: 10px;
+    }
+
+    .h1l {
+        font-size: 25px;
+    }
+
+    .h2l {
+        font-size: 12px;
+    }
+
+    .buttonMKP {
+        gap: 7px;
+    }
+
+    .lbry,
+    .prjt,
+    .prjts {
+        width: 48px;
+        height: 48px;
+    }
+
+}
+
+
+/* =====================================================
+   IMAGENS
+   ===================================================== */
+
+img {
     user-select: none;
     -webkit-user-drag: none;
     max-width: 100%;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
-.sobreselecionado{
+.sobreselecionado {
     opacity: 0.7;
     transition: 0.5s;
 }
