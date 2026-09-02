@@ -48,7 +48,7 @@ body{
     flex-direction: row;
     background-color: var(--surface);
     width: 100vw;
-    height: 8vh;
+    height: 6vh;
     justify-content: space-between;
     align-items: center;
 }
@@ -57,12 +57,14 @@ body{
 
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 10px
 
 
 }
 
-.interativo.input{
-    height: 30px;
+.interativo .search{
+    height: 28px;
 }
 
 .imglogo{

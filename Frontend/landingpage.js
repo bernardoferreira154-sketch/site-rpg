@@ -50,3 +50,9 @@ inputEmail?.addEventListener('blur', removeClassBtnGoogle);
 
 inputPassword?.addEventListener('focus', addClassBtnGoogle);
 inputPassword?.addEventListener('blur', removeClassBtnGoogle);
+
+document.querySelectorAll(".continue").forEach((botao) => {
+        botao.addEventListener("click", () => {
+        window.location.href = "Pagina-Inicial/inicialPg.html"
+    });
+});
