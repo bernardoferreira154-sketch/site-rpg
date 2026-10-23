@@ -1,32 +1,573 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <link rel="stylesheet" href="inicialPg.css">
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
+    <title>Archivum | Livraria de RPG</title>
+    <meta name="description" content="Explore livros de RPG, bestiários, aventuras e cenários para suas próximas campanhas.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="inicialPg.css">
+
     <script src="inicialPg.js" defer></script>
+</head>
 
-    <div class="cabecario">
+<body>
 
+    <!-- CABEÇALHO -->
+    <header class="cabecario">
 
-        <div class="logo">
-            <img class="imglogo" src="../logo.png" alt="A">
-        </div>
-            
-        
+        <a href="#" class="logo" aria-label="Archivum - página inicial">
+            <img class="imglogo" src="../logo.png" alt="Archivum">
+            <span class="txtlogo">Archivum</span>
+        </a>
+
+        <nav class="nav-principal" aria-label="Navegação principal">
+            <a href="#inicio" class="nav-link ativo">Início</a>
+            <a href="#catalogo" class="nav-link">Livraria</a>
+            <a href="#categorias" class="nav-link">Categorias</a>
+            <a href="#destaques" class="nav-link">Destaques</a>
+        </nav>
+
         <div class="interativo">
-            <input type="text" class="search" placeholder="Search">
-            <i></i>
-            <img class="avatar" src="avatar.png">
+
+            <label class="campo-busca">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+
+                <input
+                    type="search"
+                    class="search"
+                    id="buscaLivros"
+                    placeholder="Buscar livros..."
+                    aria-label="Buscar livros"
+                >
+
+                <kbd>/</kbd>
+            </label>
+
+            <button
+                class="botao-carrinho"
+                id="abrirCarrinho"
+                aria-label="Abrir carrinho"
+                aria-controls="painelCarrinho"
+                aria-expanded="false"
+            >
+                <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                <span class="contador-carrinho" id="contadorCarrinho">0</span>
+            </button>
+
+            <button class="botao-perfil" id="botaoPerfil" aria-label="Perfil do usuário">
+                <img
+                    class="avatar"
+                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80"
+                    alt="Perfil do usuário"
+                >
+            </button>
+
+            <button
+                class="botao-menu"
+                id="botaoMenu"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+            >
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+
+        </div>
+    </header>
+
+    <main id="inicio">
+
+        <!-- APRESENTAÇÃO DA LIVRARIA -->
+        <section class="boas-vindas">
+
+            <div class="boas-vindas-texto">
+                <span class="sobretitulo">
+                    <span class="ponto-dourado"></span>
+                    A LIVRARIA DO AVENTUREIRO
+                </span>
+
+                <h1>
+                    Toda grande aventura
+                    começa <span>por uma página.</span>
+                </h1>
+
+                <p>
+                    Descubra novos mundos, criaturas lendárias e histórias
+                    extraordinárias. Encontre os livros que vão dar vida
+                    à sua próxima campanha.
+                </p>
+
+                <div class="acoes-iniciais">
+                    <a href="#catalogo" class="botao-dourado">
+                        Explorar a livraria
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="#categorias" class="botao-secundario">
+                        Ver categorias
+                    </a>
+                </div>
+
+                <div class="nota-livraria">
+                    <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                    <span>Seu próximo mundo está entre estas páginas.</span>
+                </div>
+            </div>
+
+            <div class="boas-vindas-arte" aria-label="Ilustração de livros de fantasia">
+
+                <div class="brilho brilho-1"></div>
+                <div class="brilho brilho-2"></div>
+
+                <div class="selo-edicao">
+                    <i class="fa-solid fa-star" aria-hidden="true"></i>
+                    <span>EDIÇÕES<br>PARA AVENTUREIROS</span>
+                </div>
+
+                <img
+                    class="imagem-destaque"
+                    src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=85"
+                    alt="Paisagem de fantasia para inspirar aventuras"
+                >
+
+                <div class="legenda-arte">
+                    <span>O INÍCIO DE UMA LENDA</span>
+                    <i class="fa-solid fa-dice-d20" aria-hidden="true"></i>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CATEGORIAS -->
+        <section class="secao-categorias" id="categorias">
+
+            <div class="cabecalho-secao">
+                <div>
+                    <span class="sobretitulo">ENCONTRE SEU CAMINHO</span>
+                    <h2>Explore por categoria</h2>
+                </div>
+
+                <p>
+                    Das regras fundamentais aos segredos
+                    mais obscuros dos mundos fantásticos.
+                </p>
+            </div>
+
+            <div class="grade-categorias">
+
+                <button class="card-categoria selecionada" data-categoria="todos">
+                    <span class="icone-categoria">
+                        <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                    </span>
+                    <span class="categoria-nome">Todos os livros</span>
+                    <span class="categoria-descricao">Toda a coleção</span>
+                    <i class="fa-solid fa-arrow-right seta-categoria" aria-hidden="true"></i>
+                </button>
+
+                <button class="card-categoria" data-categoria="regras">
+                    <span class="icone-categoria">
+                        <i class="fa-solid fa-scroll" aria-hidden="true"></i>
+                    </span>
+                    <span class="categoria-nome">Regras e sistemas</span>
+                    <span class="categoria-descricao">A base da aventura</span>
+                    <i class="fa-solid fa-arrow-right seta-categoria" aria-hidden="true"></i>
+                </button>
+
+                <button class="card-categoria" data-categoria="aventuras">
+                    <span class="icone-categoria">
+                        <i class="fa-solid fa-dragon" aria-hidden="true"></i>
+                    </span>
+                    <span class="categoria-nome">Aventuras</span>
+                    <span class="categoria-descricao">Histórias para jogar</span>
+                    <i class="fa-solid fa-arrow-right seta-categoria" aria-hidden="true"></i>
+                </button>
+
+                <button class="card-categoria" data-categoria="bestiarios">
+                    <span class="icone-categoria">
+                        <i class="fa-solid fa-paw" aria-hidden="true"></i>
+                    </span>
+                    <span class="categoria-nome">Bestiários</span>
+                    <span class="categoria-descricao">Criaturas e monstros</span>
+                    <i class="fa-solid fa-arrow-right seta-categoria" aria-hidden="true"></i>
+                </button>
+
+            </div>
+        </section>
+
+        <!-- LIVROS EM DESTAQUE -->
+        <section class="secao-livros" id="destaques">
+
+            <div class="cabecalho-secao">
+                <div>
+                    <span class="sobretitulo">ESCOLHAS DO ARQUIVISTA</span>
+                    <h2>Em destaque</h2>
+                </div>
+
+                <a href="#catalogo" class="link-ver-todos">
+                    Ver coleção completa
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+            <div class="grade-livros grade-destaques">
+
+                <article class="card-livro">
+                    <div class="capa-livro">
+                        <span class="etiqueta-livro">POPULAR</span>
+                        <img
+                            src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=500&q=85"
+                            alt="Capa ilustrativa de um livro de fantasia"
+                            loading="lazy"
+                        >
+                        <button class="botao-favorito" aria-label="Favoritar Livro do Mestre" aria-pressed="false">
+                            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <div class="info-livro">
+                        <span class="tipo-livro">REGRAS E SISTEMAS</span>
+                        <h3>Livro do Mestre</h3>
+                        <p class="descricao-livro">Ferramentas para narrar grandes aventuras.</p>
+                        <div class="linha-preco">
+                            <strong>R$ 149,90</strong>
+                            <button class="botao-adicionar" data-id="mestre" aria-label="Adicionar Livro do Mestre ao carrinho">
+                                <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-livro">
+                    <div class="capa-livro">
+                        <span class="etiqueta-livro etiqueta-nova">EDIÇÃO ESPECIAL</span>
+                        <img
+                            src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=500&q=85"
+                            alt="Capa ilustrativa de um livro antigo"
+                            loading="lazy"
+                        >
+                        <button class="botao-favorito" aria-label="Favoritar Grimório Arcano" aria-pressed="false">
+                            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <div class="info-livro">
+                        <span class="tipo-livro">REGRAS E SISTEMAS</span>
+                        <h3>Grimório Arcano</h3>
+                        <p class="descricao-livro">Feitiços, rituais e conhecimentos proibidos.</p>
+                        <div class="linha-preco">
+                            <strong>R$ 89,90</strong>
+                            <button class="botao-adicionar" data-id="grimorio" aria-label="Adicionar Grimório Arcano ao carrinho">
+                                <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-livro">
+                    <div class="capa-livro">
+                        <span class="etiqueta-livro">FAVORITO</span>
+                        <img
+                            src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=500&q=85"
+                            alt="Capa ilustrativa de um livro de criaturas fantásticas"
+                            loading="lazy"
+                        >
+                        <button class="botao-favorito" aria-label="Favoritar Bestiário das Sombras" aria-pressed="false">
+                            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <div class="info-livro">
+                        <span class="tipo-livro">BESTIÁRIOS</span>
+                        <h3>Bestiário das Sombras</h3>
+                        <p class="descricao-livro">Conheça as criaturas que espreitam no escuro.</p>
+                        <div class="linha-preco">
+                            <strong>R$ 119,90</strong>
+                            <button class="botao-adicionar" data-id="bestiario" aria-label="Adicionar Bestiário das Sombras ao carrinho">
+                                <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-livro">
+                    <div class="capa-livro">
+                        <span class="etiqueta-livro etiqueta-nova">AVENTURA</span>
+                        <img
+                            src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=500&q=85"
+                            alt="Paisagem ilustrativa para uma aventura fantástica"
+                            loading="lazy"
+                        >
+                        <button class="botao-favorito" aria-label="Favoritar A Cripta Esquecida" aria-pressed="false">
+                            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <div class="info-livro">
+                        <span class="tipo-livro">AVENTURAS</span>
+                        <h3>A Cripta Esquecida</h3>
+                        <p class="descricao-livro">Uma jornada entre ruínas e mistérios antigos.</p>
+                        <div class="linha-preco">
+                            <strong>R$ 69,90</strong>
+                            <button class="botao-adicionar" data-id="cripta" aria-label="Adicionar A Cripta Esquecida ao carrinho">
+                                <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- CATÁLOGO COMPLETO -->
+        <section class="secao-livros secao-catalogo" id="catalogo">
+
+            <div class="cabecalho-secao">
+                <div>
+                    <span class="sobretitulo">A BIBLIOTECA ESPERA</span>
+                    <h2>Explore a coleção</h2>
+                </div>
+
+                <span class="quantidade-livros" id="quantidadeLivros">
+                    8 obras disponíveis
+                </span>
+            </div>
+
+            <div class="barra-filtros">
+
+                <div class="filtros-categoria" aria-label="Filtrar livros por categoria">
+                    <button class="filtro ativo" data-filtro="todos">Todos</button>
+                    <button class="filtro" data-filtro="regras">Regras</button>
+                    <button class="filtro" data-filtro="aventuras">Aventuras</button>
+                    <button class="filtro" data-filtro="bestiarios">Bestiários</button>
+                </div>
+
+                <label class="ordenacao">
+                    <span>Ordenar:</span>
+                    <select id="ordenarLivros" aria-label="Ordenar livros">
+                        <option value="padrao">Recomendados</option>
+                        <option value="menor-preco">Menor preço</option>
+                        <option value="maior-preco">Maior preço</option>
+                        <option value="nome">Nome A–Z</option>
+                    </select>
+                </label>
+
+            </div>
+
+            <div class="grade-livros" id="gradeCatalogo">
+
+                <article class="card-livro" data-id="mestre" data-categoria="regras" data-nome="Livro do Mestre" data-preco="149.90">
+                    <div class="capa-livro">
+                        <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=500&q=85" alt="Livro do Mestre" loading="lazy">
+                    </div>
+                    <div class="info-livro">
+                        <span class="tipo-livro">REGRAS E SISTEMAS</span>
+                        <h3>Livro do Mestre</h3>
+                        <p class="descricao-livro">Ferramentas para narrar grandes aventuras.</p>
+                        <div class="linha-preco">
+                            <strong>R$ 149,90</strong>
+                            <button class="botao-adicionar" data-id="mestre" aria-label="Adicionar Livro do Mestre ao carrinho"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-livro" data-id="grimorio" data-categoria="regras" data-nome="Grimório Arcano" data-preco="89.90">
+                    <div class="capa-livro">
+                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=500&q=85" alt="Grimório Arcano" loading="lazy">
+                    </div>
+                    <div class="info-livro">
+                        <span class="tipo-livro">REGRAS E SISTEMAS</span>
+                        <h3>Grimório Arcano</h3>
+                        <p class="descricao-livro">Feitiços, rituais e conhecimentos proibidos.</p>
+                        <div class="linha-preco">
+                            <strong>R$ 89,90</strong>
+                            <button class="botao-adicionar" data-id="grimorio" aria-label="Adicionar Grimório Arcano ao carrinho"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-livro" data-id="bestiario" data-categoria="bestiarios" data-nome="Bestiário das Sombras" data-preco="119.90">
+                    <div class="capa-livro">
+                        <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=500&q=85" alt="Bestiário das Sombras" loading="lazy">
+                    </div>
+                    <div class="info-livro">
+                        <span class="tipo-livro">BESTIÁRIOS</span>
+                        <h3>Bestiário das Sombras</h3>
+                        <p class="descricao-livro">Criaturas que espreitam no escuro.</p>
+                        <div class="linha-preco">
+                            <strong>R$ 119,90</strong>
+                            <button class="botao-adicionar" data-id="bestiario" aria-label="Adicionar Bestiário das Sombras ao carrinho"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-livro" data-id="cripta" data-categoria="aventuras" data-nome="A Cripta Esquecida" data-preco="69.90">
+                    <div class="capa-livro">
+                        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=500&q=85" alt="A Cripta Esquecida" loading="lazy">
+                    </div>
+                    <div class="info-livro">
+                        <span class="tipo-livro">AVENTURAS</span>
+                        <h3>A Cripta Esquecida</h3>
+                        <p class="descricao-livro">Uma jornada entre ruínas e mistérios antigos.</p>
+                        <div class="linha-preco">
+                            <strong>R$ 69,90</strong>
+                            <button class="botao-adicionar" data-id="cripta" aria-label="Adicionar A Cripta Esquecida ao carrinho"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-livro" data-id="reinos" data-categoria="aventuras" data-nome="Reinos Perdidos" data-preco="79.90">
+                    <div class="capa-livro">
+                        <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=500&q=85" alt="Reinos Perdidos" loading="lazy">
+                    </div>
+                    <div class="info-livro">
+                        <span class="tipo-livro">AVENTURAS</span>
+                        <h3>Reinos Perdidos</h3>
+                        <p class="descricao-livro">Explore terras esquecidas pelo tempo.</p>
+                        <div class="linha-preco">
+                            <strong>R$ 79,90</strong>
+                            <button class="botao-adicionar" data-id="reinos" aria-label="Adicionar Reinos Perdidos ao carrinho"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-livro" data-id="herois" data-categoria="regras" data-nome="Crônicas dos Heróis" data-preco="99.90">
+                    <div class="capa-livro">
+                        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=500&q=85" alt="Crônicas dos Heróis" loading="lazy">
+                    </div>
+                    <div class="info-livro">
+                        <span class="tipo-livro">REGRAS E SISTEMAS</span>
+                        <h3>Crônicas dos Heróis</h3>
+                        <p class="descricao-livro">Crie personagens e histórias memoráveis.</p>
+                        <div class="linha-preco">
+                            <strong>R$ 99,90</strong>
+                            <button class="botao-adicionar" data-id="herois" aria-label="Adicionar Crônicas dos Heróis ao carrinho"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-livro" data-id="dragao" data-categoria="bestiarios" data-nome="Anatomia do Dragão" data-preco="109.90">
+                    <div class="capa-livro">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=500&q=85" alt="Anatomia do Dragão" loading="lazy">
+                    </div>
+                    <div class="info-livro">
+                        <span class="tipo-livro">BESTIÁRIOS</span>
+                        <h3>Anatomia do Dragão</h3>
+                        <p class="descricao-livro">Estude as feras mais temidas dos reinos.</p>
+                        <div class="linha-preco">
+                            <strong>R$ 109,90</strong>
+                            <button class="botao-adicionar" data-id="dragao" aria-label="Adicionar Anatomia do Dragão ao carrinho"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <p class="mensagem-vazia" id="mensagemVazia" hidden>
+                Nenhum livro encontrado. Tente outro termo ou categoria.
+            </p>
+
+        </section>
+
+        <!-- FAIXA FINAL -->
+        <section class="faixa-final">
+            <div>
+                <span class="sobretitulo">PARA QUEM CONTA HISTÓRIAS</span>
+                <h2>Grandes mundos merecem uma grande biblioteca.</h2>
+                <p>Reúna inspiração para sua próxima sessão e transforme ideias em aventuras inesquecíveis.</p>
+            </div>
+
+            <a href="#catalogo" class="botao-dourado">
+                Encontrar meu próximo livro
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+        <a href="#inicio" class="logo logo-rodape">
+            <img class="imglogo" src="../logo.png" alt="">
+            <span class="txtlogo">Archivum</span>
+        </a>
+
+        <p>Um universo de histórias, reunido em um só lugar.</p>
+
+        <span class="direitos">© 2026 Archivum. Projeto de livraria de RPG.</span>
+    </footer>
+
+    <!-- PAINEL DO CARRINHO -->
+    <div class="fundo-painel" id="fundoPainel" hidden></div>
+
+    <aside
+        class="painel-carrinho"
+        id="painelCarrinho"
+        aria-label="Carrinho de compras"
+        aria-hidden="true"
+        inert
+    >
+        <div class="cabecalho-carrinho">
+            <div>
+                <span class="sobretitulo">SUA PRÓXIMA AVENTURA</span>
+                <h2>Seu carrinho</h2>
+            </div>
+
+            <button class="botao-fechar" id="fecharCarrinho" aria-label="Fechar carrinho">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
         </div>
 
+        <div class="itens-carrinho" id="itensCarrinho">
+            <div class="carrinho-vazio">
+                <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                <p>Seu carrinho ainda está vazio.</p>
+                <span>Que tal encontrar uma nova aventura?</span>
+            </div>
+        </div>
+
+        <div class="rodape-carrinho">
+            <div class="total-carrinho">
+                <span>Total</span>
+                <strong id="totalCarrinho">R$ 0,00</strong>
+            </div>
+
+            <button class="botao-dourado botao-finalizar" id="finalizarCompra">
+                Continuar
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </button>
+
+            <p class="aviso-carrinho">
+                Demonstração de interface. Nenhum pagamento será realizado.
+            </p>
+        </div>
+    </aside>
+
+    <!-- NOTIFICAÇÃO -->
+    <div class="notificacao" id="notificacao" role="status" aria-live="polite"></div>
+
+    <!-- MODAL DE PERFIL -->
+    <div class="modal-perfil" id="modalPerfil" hidden>
+        <div class="conteudo-modal">
+            <button class="botao-fechar" id="fecharPerfil" aria-label="Fechar perfil">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <i class="fa-regular fa-user icone-perfil" aria-hidden="true"></i>
+            <h2>Área do aventureiro</h2>
+            <p>A área de perfil e autenticação poderá ser conectada ao sistema de contas do Archivum.</p>
+            <button class="botao-dourado" id="entendiPerfil">Entendi</button>
+        </div>
     </div>
 
+    <!-- ÍCONES -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" defer></script>
 
-    
 </body>
 </html>
