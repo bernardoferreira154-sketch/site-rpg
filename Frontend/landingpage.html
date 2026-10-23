@@ -1,134 +1,743 @@
-    <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="landingpage.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <meta
+        name="description"
+        content="Organize suas campanhas de RPG, personagens, mundos e aventuras em um único lugar com o Archivum."
+    >
+
+    <meta name="theme-color" content="#0c0c0c">
+
+    <title>Archivum — Seu universo de RPG, organizado</title>
+
+    <link rel="icon" href="logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="landingpage.css">
+
+    <script src="landingpage.js" defer></script>
 </head>
 
-<script src="landingpage.js" defer></script>
 <body>
-    
-<div pag class="navbar pagina">
-    <div class="logo">
-        <img class="imglogo" src="logo.png" alt="A">
-        <p class="txtlogo">Archivum</p>
-    </div>
 
-    <div class="links">
-        <a href="#">Community</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </div>
-        
-    <div class="botoes">
-        <button class="log_in btn">Log In</button>
-        <button class="sign_up btn">Sign Up</button>
-    </div>
-</div>
-<!--fim da navbar-->
+    <!-- CABEÇALHO -->
 
-<div class="landingpage">
-    <div class="textprinc">
-        <img class="imgprinc" src="imgprinc.png">
-        <h1 class="h1l">Bring your campaigns to life.</h1>
-        <h2 class="h2l">Organize stories, characters, and worlds in one place with Archivum.</h2>
-    </div>
+    <header class="navbar pagina" id="topo">
 
-    <div class="sec2">
-        <div class="top">
-            <h1 class="h1sec2 reveal">Archivum</h1>
-            <p class="psec2 reveal">Archivum is a space for game masters and players to organize everything that makes a campaign unique. Create campaigns, manage characters, explore worlds, and keep every detail of your adventure in one place — your digital grimoire.</p>
+        <a class="logo" href="#topo" aria-label="Archivum — início">
+            <img class="imglogo" src="logo.png" alt="">
+            <span class="txtlogo">Archivum</span>
+        </a>
+
+        <nav class="links" id="navegacao">
+            <a href="#sobre">Sobre</a>
+            <a href="#recursos">Recursos</a>
+            <a href="#como-funciona">Como funciona</a>
+        </nav>
+
+        <div class="botoes">
+            <button class="log_in btn" type="button">
+                Entrar
+            </button>
+
+            <button class="sign_up btn" type="button">
+                Começar agora
+            </button>
         </div>
 
-        <div class="bottom">
-            <div class="mockup reveal">
-                <img class="imgsec2 reveal" src="sec2img1.png">
-                <div class="buttonMKP">
-                    <button class="prjt"></button>
-                    <button class="lbry"></button>
-                    <button class="prjts"></button>
+        <button
+            class="menu-mobile"
+            id="menuMobile"
+            type="button"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="navegacao"
+        >
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+
+    </header>
+
+
+    <!-- PÁGINA PRINCIPAL -->
+
+    <main class="landingpage pagina" id="paginaInicial">
+
+        <!-- HERO -->
+
+        <section class="hero" aria-labelledby="tituloPrincipal">
+
+            <img
+                class="imgprinc"
+                src="imgprinc.png"
+                alt=""
+                aria-hidden="true"
+            >
+
+            <div class="hero-conteudo">
+
+                <div class="hero-etiqueta">
+                    <span class="hero-ponto"></span>
+                    O SEU UNIVERSO, EM UM SÓ LUGAR
                 </div>
-           </div>
-        </div>
-    </div>
-</div>
-<!--fim landingpage-->
 
-<div class="login hidden pagina reveal">
-    <div class="Containerlogin">
-        <img class="imglogoli" src="logo.png">
-        <h1 class="h1li">Log in to your account and start now</h1>
+                <h1 class="h1l" id="tituloPrincipal">
+                    Bring your campaigns
+                    <span>to life.</span>
+                </h1>
 
-        <div class="create">
-            <button class="LogInWGoogle"> 
-                <img class="google-icon-color" src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Ícone Colorido do Google">      
+                <p class="h2l">
+                    Suas histórias merecem mais do que arquivos espalhados.
+                    Organize campanhas, personagens e mundos em seu próprio
+                    grimório digital.
+                </p>
+
+                <div class="hero-acoes">
+                    <button class="sign_up btn hero-cta" type="button">
+                        Explore o Archivum
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+
+                   
+                </div>
+
+                <div class="hero-beneficios">
+                    <span>
+                        <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                        Suas campanhas organizadas
+                    </span>
+
+                    <span>
+                        <i class="fa-solid fa-dice-d20" aria-hidden="true"></i>
+                        Feito para RPG
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="hero-arte" aria-hidden="true">
+                <div class="arte-aura"></div>
+
+                <div class="arte-moldura">
+                    <div class="arte-simbolo">
+                        <i class="fa-solid fa-book-journal-whills"></i>
+                    </div>
+
+                    <span class="arte-linha"></span>
+                    <span class="arte-palavra">ARCHIVUM</span>
+                    <span class="arte-subtitulo">YOUR STORY. YOUR WORLD.</span>
+                </div>
+
+                <div class="arte-selo arte-selo-superior">
+                    <i class="fa-solid fa-feather-pointed"></i>
+                    <span>Suas histórias</span>
+                </div>
+
+                <div class="arte-selo arte-selo-inferior">
+                    <i class="fa-solid fa-scroll"></i>
+                    <span>Seu grimório digital</span>
+                </div>
+            </div>
+
+            <a class="indicador-rolagem" href="#sobre" aria-label="Rolar para conhecer o Archivum">
+                <span></span>
+            </a>
+
+        </section>
+
+
+        <!-- SOBRE O ARCHIVUM -->
+
+        <section class="sec2 secao-sobre" id="sobre">
+
+            <div class="top">
+
+                <div class="sobre-titulo reveal">
+                    <span class="sobretitulo">MAIS QUE UM LUGAR PARA ANOTAÇÕES</span>
+
+                    <h2 class="h1sec2">
+                        Conheça o
+                        <span>Archivum.</span>
+                    </h2>
+                </div>
+
+                <p class="psec2 reveal">
+                    O Archivum é um espaço para mestres e jogadores organizarem
+                    tudo o que torna uma campanha única. Reúna personagens,
+                    cenários, histórias e informações importantes em um só lugar
+                    — e passe menos tempo procurando anotações e mais tempo
+                    criando aventuras.
+                </p>
+
+            </div>
+
+            <div class="bottom">
+
+                <div class="mockup reveal">
+
+                    <div class="mockup-topo">
+                        <div class="mockup-logo">
+                            <img src="logo.png" alt="">
+                            <span>Archivum</span>
+                        </div>
+
+                        <div class="mockup-controles" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <div class="mockup-corpo">
+
+                        <aside class="mockup-sidebar">
+                            <span class="mockup-label">WORKSPACE</span>
+
+                            <div class="mockup-item ativo">
+                                <i class="fa-solid fa-house"></i>
+                                Visão geral
+                            </div>
+
+                            <div class="mockup-item">
+                                <i class="fa-solid fa-book-open"></i>
+                                Campanhas
+                            </div>
+
+                            <div class="mockup-item">
+                                <i class="fa-solid fa-users"></i>
+                                Personagens
+                            </div>
+
+                            <div class="mockup-item">
+                                <i class="fa-solid fa-map"></i>
+                                Mundos
+                            </div>
+
+                            <div class="mockup-item">
+                                <i class="fa-solid fa-scroll"></i>
+                                Anotações
+                            </div>
+                        </aside>
+
+                        <div class="mockup-painel">
+
+                            <div class="mockup-boasvindas">
+                                <span class="mockup-label">SEU ESPAÇO DE CRIAÇÃO</span>
+                                <h3>Suas aventuras começam aqui.</h3>
+                                <p>
+                                    Tudo o que você precisa para construir
+                                    seu próximo mundo.
+                                </p>
+                            </div>
+
+                            <div class="mockup-estatisticas">
+                                <div>
+                                    <i class="fa-solid fa-book-open"></i>
+                                    <span>Campanhas</span>
+                                    <strong>Organizadas</strong>
+                                </div>
+
+                                <div>
+                                    <i class="fa-solid fa-users"></i>
+                                    <span>Personagens</span>
+                                    <strong>Prontos para jogar</strong>
+                                </div>
+
+                                <div>
+                                    <i class="fa-solid fa-map"></i>
+                                    <span>Universos</span>
+                                    <strong>Cheios de histórias</strong>
+                                </div>
+                            </div>
+
+                            <div class="mockup-nota">
+                                <i class="fa-solid fa-lightbulb"></i>
+                                <div>
+                                    <strong>Uma ideia para sua próxima sessão?</strong>
+                                    <span>Registre seus detalhes sem perder a inspiração.</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <p class="mockup-legenda">
+                    <i class="fa-solid fa-sparkles" aria-hidden="true"></i>
+                    Um espaço feito para dar vida às suas ideias.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECURSOS -->
+
+        <section class="recursos" id="recursos">
+
+            <div class="secao-cabecalho reveal">
+                <span class="sobretitulo">TUDO NO SEU DEVIDO LUGAR</span>
+
+                <h2>
+                    Menos organização manual.
+                    <span>Mais aventura.</span>
+                </h2>
+
+                <p>
+                    Ferramentas para manter cada detalhe da sua campanha
+                    acessível, organizado e pronto para a próxima sessão.
+                </p>
+            </div>
+
+            <div class="recursos-grade">
+
+                <article class="recurso-card recurso-destaque reveal">
+                    <div class="recurso-icone">
+                        <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                    </div>
+
+                    <span class="recurso-numero">01 / CAMPANHAS</span>
+
+                    <h3>Suas histórias, bem organizadas.</h3>
+
+                    <p>
+                        Reúna o contexto da campanha, acontecimentos,
+                        anotações e informações importantes sem depender
+                        de dezenas de documentos separados.
+                    </p>
+
+                    <div class="recurso-decoracao" aria-hidden="true">
+                        <i class="fa-solid fa-book-journal-whills"></i>
+                    </div>
+                </article>
+
+                <article class="recurso-card reveal">
+                    <div class="recurso-icone">
+                        <i class="fa-solid fa-users" aria-hidden="true"></i>
+                    </div>
+
+                    <span class="recurso-numero">02 / PERSONAGENS</span>
+
+                    <h3>Todo personagem tem uma história.</h3>
+
+                    <p>
+                        Mantenha fichas, informações, relações e detalhes
+                        dos personagens da sua aventura em um espaço
+                        mais fácil de consultar.
+                    </p>
+                </article>
+
+                <article class="recurso-card reveal">
+                    <div class="recurso-icone">
+                        <i class="fa-solid fa-earth-americas" aria-hidden="true"></i>
+                    </div>
+
+                    <span class="recurso-numero">03 / MUNDOS</span>
+
+                    <h3>Construa universos inteiros.</h3>
+
+                    <p>
+                        Organize lugares, povos, culturas, organizações
+                        e tudo aquilo que transforma um cenário em
+                        um mundo vivo.
+                    </p>
+                </article>
+
+                <article class="recurso-card reveal">
+                    <div class="recurso-icone">
+                        <i class="fa-solid fa-dragon" aria-hidden="true"></i>
+                    </div>
+
+                    <span class="recurso-numero">04 / CRIATURAS</span>
+
+                    <h3>Prepare encontros memoráveis.</h3>
+
+                    <p>
+                        Tenha referências de criaturas, adversários,
+                        itens e ideias prontas para enriquecer
+                        as suas sessões.
+                    </p>
+                </article>
+
+                <article class="recurso-card reveal">
+                    <div class="recurso-icone">
+                        <i class="fa-solid fa-scroll" aria-hidden="true"></i>
+                    </div>
+
+                    <span class="recurso-numero">05 / ANOTAÇÕES</span>
+
+                    <h3>Não perca nenhuma ideia.</h3>
+
+                    <p>
+                        Registre pistas, teorias, acontecimentos e
+                        detalhes importantes para consultar quando
+                        a história avançar.
+                    </p>
+                </article>
+
+                <article class="recurso-card recurso-futuro reveal">
+                    <div class="recurso-icone">
+                        <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+                    </div>
+
+                    <span class="recurso-numero">06 / CRIATIVIDADE</span>
+
+                    <h3>Um espaço para suas próximas ideias.</h3>
+
+                    <p>
+                        Uma estrutura pensada para acompanhar a evolução
+                        das suas campanhas e ajudar você a dar forma
+                        a novas possibilidades.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- COMO FUNCIONA -->
+
+        <section class="como-funciona" id="como-funciona">
+
+            <div class="como-texto reveal">
+
+                <span class="sobretitulo">COMECE PELA SUA PRÓXIMA HISTÓRIA</span>
+
+                <h2>
+                    Seu mundo.
+                    Suas regras.
+                    <span>Sua aventura.</span>
+                </h2>
+
+                <p>
+                    Você não precisa mudar a forma como joga RPG. O Archivum
+                    foi pensado para ajudar a organizar as informações que
+                    você já cria, no ritmo da sua própria campanha.
+                </p>
+
+                <button class="sign_up btn botao-comecar" type="button">
+                    Conheça o Archivum
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </button>
+
+            </div>
+
+            <div class="passos">
+
+                <article class="passo reveal">
+                    <span class="passo-numero">01</span>
+
+                    <div>
+                        <h3>Reúna suas ideias</h3>
+                        <p>
+                            Comece registrando o cenário, as anotações
+                            e os elementos que fazem parte da sua campanha.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="passo reveal">
+                    <span class="passo-numero">02</span>
+
+                    <div>
+                        <h3>Organize seu universo</h3>
+                        <p>
+                            Estruture personagens, lugares, acontecimentos
+                            e referências para encontrar cada coisa com
+                            mais facilidade.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="passo reveal">
+                    <span class="passo-numero">03</span>
+
+                    <div>
+                        <h3>Volte à aventura</h3>
+                        <p>
+                            Consulte o que importa e concentre sua energia
+                            no que realmente faz o RPG ser divertido:
+                            criar histórias junto com o grupo.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- CHAMADA FINAL -->
+
+        <section class="chamada-final reveal">
+
+            <div class="chamada-simbolo" aria-hidden="true">
+                <i class="fa-solid fa-book-journal-whills"></i>
+            </div>
+
+            <span class="sobretitulo">A PRÓXIMA PÁGINA É SUA</span>
+
+            <h2>
+                Toda grande aventura
+                começa com uma ideia.
+            </h2>
+
+            <p>
+                Dê às suas campanhas um lugar para crescer.
+            </p>
+
+            <button class="sign_up btn chamada-botao" type="button">
+                Começar agora
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </button>
-            <p class="or">or</p>
-            <input class="e-mail" type="email" placeholder="Email address">
-            <input class="pswrd" type="password" placeholder="password">
-            <button class="continue">Continue</button>
-        </div>
-    </div>
-</div>
-<!--fim login-->
 
-<div class="signup hidden pagina reveal">
-    <div class="ContainerSignup">
-        <img class="imglogosu" src="logo.png">
-        <h1 class="h1su">Create your account and start now</h1>
+        </section>
 
-        <div class="create">
-            <button class="SignUpWGoogle"> 
-                <img class="google-icon-color" src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Ícone Colorido do Google">      
-            </button>
-            <p class="or">or</p>
-            <input class="e-mail" type="email" placeholder="Email address">
-            <input class="pswrd" type="password" placeholder="password">
-            <button class="continue">Continue</button>
-        </div>
-    </div>
-</div>
-<!--fim signup-->
+    </main>
 
-<!--footer-->
-<div class="entire_footer">
-    <img src="imgprinc.png">
-    <div class="footer">
-        <div class="community">
-            <h3>Community</h3>
-            <a href="#">Discord</a>
-            <a href="#">GitHub</a>
-            <a href="#">Reddit</a>
-            <a href="#">Feedback</a>
+
+    <!-- LOGIN -->
+
+    <main class="auth-pagina login hidden" id="paginaLogin">
+
+        <button class="auth-voltar" type="button">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            Voltar para o início
+        </button>
+
+        <section class="auth-card">
+
+            <a class="logo auth-logo" href="#topo">
+                <img class="imglogo" src="logo.png" alt="">
+                <span class="txtlogo">Archivum</span>
+            </a>
+
+            <span class="sobretitulo">BEM-VINDO DE VOLTA</span>
+
+            <h1 class="h1li">Entre no seu universo.</h1>
+
+            <p class="auth-descricao">
+                Acesse sua conta para continuar organizando suas aventuras.
+            </p>
+
+            <form class="auth-form" id="loginForm">
+
+                <label for="loginEmail">E-mail</label>
+
+                <input
+                    class="e-mail"
+                    id="loginEmail"
+                    name="email"
+                    type="email"
+                    placeholder="voce@exemplo.com"
+                    autocomplete="email"
+                    required
+                >
+
+                <label for="loginPassword">Senha</label>
+
+                <input
+                    class="pswrd"
+                    id="loginPassword"
+                    name="password"
+                    type="password"
+                    placeholder="Sua senha"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button class="continue" type="submit">
+                    Entrar
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </button>
+
+            </form>
+
+            <p class="auth-alternativa">
+                Ainda não tem uma conta?
+                <button class="link-auth ir-cadastro" type="button">
+                    Criar conta
+                </button>
+            </p>
+
+            <p class="auth-aviso">
+                A autenticação ainda precisa ser conectada ao backend.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- CADASTRO -->
+
+    <main class="auth-pagina signup hidden" id="paginaCadastro">
+
+        <button class="auth-voltar" type="button">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            Voltar para o início
+        </button>
+
+        <section class="auth-card">
+
+            <a class="logo auth-logo" href="#topo">
+                <img class="imglogo" src="logo.png" alt="">
+                <span class="txtlogo">Archivum</span>
+            </a>
+
+            <span class="sobretitulo">SUA PRÓXIMA AVENTURA COMEÇA AQUI</span>
+
+            <h1 class="h1su">Crie seu espaço.</h1>
+
+            <p class="auth-descricao">
+                Prepare seu grimório digital para organizar as próximas histórias.
+            </p>
+
+            <form class="auth-form" id="cadastroForm">
+
+                <label for="cadastroNome">Nome</label>
+
+                <input
+                    class="e-mail"
+                    id="cadastroNome"
+                    name="nome"
+                    type="text"
+                    placeholder="Como podemos chamar você?"
+                    autocomplete="name"
+                    minlength="2"
+                    required
+                >
+
+                <label for="cadastroEmail">E-mail</label>
+
+                <input
+                    class="e-mail"
+                    id="cadastroEmail"
+                    name="email"
+                    type="email"
+                    placeholder="voce@exemplo.com"
+                    autocomplete="email"
+                    required
+                >
+
+                <label for="cadastroPassword">Senha</label>
+
+                <input
+                    class="pswrd"
+                    id="cadastroPassword"
+                    name="password"
+                    type="password"
+                    placeholder="Crie uma senha"
+                    autocomplete="new-password"
+                    minlength="8"
+                    required
+                >
+
+                <button class="continue" type="submit">
+                    Criar conta
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </button>
+
+            </form>
+
+            <p class="auth-alternativa">
+                Já tem uma conta?
+                <button class="link-auth ir-login" type="button">
+                    Entrar
+                </button>
+            </p>
+
+            <p class="auth-aviso">
+                O cadastro ainda precisa ser conectado ao backend.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+
+    <footer class="entire_footer pagina">
+
+        <div class="footer-conteudo">
+
+            <div class="footer-marca">
+                <a class="logo" href="#topo">
+                    <img class="imglogo" src="logo.png" alt="">
+                    <span class="txtlogo">Archivum</span>
+                </a>
+
+                <p>
+                    Seu universo de RPG, organizado em um só lugar.
+                </p>
+            </div>
+
+            <div class="footer">
+
+                <div class="community">
+                    <h3>Comunidade</h3>
+                    <a href="#recursos">Recursos</a>
+                    <a href="#como-funciona">Como funciona</a>
+                </div>
+
+                <div class="core_features">
+                    <h3>Plataforma</h3>
+                    <a href="#sobre">Sobre o Archivum</a>
+                    <a href="#recursos">Campanhas e mundos</a>
+                    <a href="#recursos">Personagens</a>
+                </div>
+
+                <div class="social_media">
+                    <h3>Projeto</h3>
+                    <a
+                        href="https://github.com/bernardoferreira154-sketch/site-rpg"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GitHub
+                    </a>
+                </div>
+
+            </div>
+
         </div>
-        <div class="core_features">
-            <h3>Core Features</h3>
-            <a href="#">Campaigns</a>
-            <a href="#">Maps</a>
-            <a href="#">Dice Roller</a>
-            <a href="#">AI PDF Assistant</a>
+
+        <div class="footer-final">
+            <span>© <span id="anoAtual"></span> Archivum.</span>
+            <span>Feito para quem tem histórias para contar.</span>
         </div>
-        <div class="social_media">
-            <h3>Social Media</h3>
-            <a href="#">Discord</a>
-            <a href="#">Instagram</a>
-        </div>
-        <div class="legal">
-            <h3>Legal</h3>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Cookie Policy</a>
-            <a href="#">Licenses</a>
-            <a href="#">Contact</a>
-        </div>
-    </div>
-</div>
+
+    </footer>
+
+
+    <!-- MENSAGEM DE FEEDBACK -->
+
+    <div
+        class="mensagem-feedback"
+        id="mensagemFeedback"
+        role="status"
+        aria-live="polite"
+    ></div>
 
 </body>
 </html>
