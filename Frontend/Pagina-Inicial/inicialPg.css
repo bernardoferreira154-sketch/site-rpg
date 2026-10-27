@@ -3,7 +3,7 @@
    ARCHIVUM — LIVRARIA
    ========================================= */
 
-:root {
+   :root {
     --background: #6e2727;
     --bg-degrade: linear-gradient(180deg, #080808 0%, #101010 100%);
 
@@ -1934,3 +1934,171 @@ p {
         transition-duration: 0.01ms !important;
     }
 }
+
+
+/* =========================================
+   NOVA EXPERIÊNCIA DA LIVRARIA
+   Carrosséis horizontais e modo de pesquisa
+   ========================================= */
+
+/* No modo normal, cada coleção ocupa uma única fileira rolável. */
+.grade-livros {
+    display: flex;
+    align-items: stretch;
+    gap: 18px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 4px 2px 18px;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold-dark) transparent;
+    -webkit-overflow-scrolling: touch;
+}
+
+.grade-livros::-webkit-scrollbar { height: 6px; }
+.grade-livros::-webkit-scrollbar-track { background: transparent; }
+.grade-livros::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 99px; }
+
+.grade-livros .card-livro {
+    flex: 0 0 clamp(190px, 19vw, 245px);
+    scroll-snap-align: start;
+}
+
+.grade-livros .capa-livro { height: clamp(210px, 24vw, 285px); }
+
+/* Categorias também podem ser percorridas lateralmente em telas estreitas. */
+@media (max-width: 600px) {
+    .grade-categorias {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        padding: 2px 2px 12px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .card-categoria {
+        flex: 0 0 210px;
+        scroll-snap-align: start;
+    }
+
+    .grade-livros { gap: 12px; }
+    .grade-livros .card-livro { flex-basis: 44vw; max-width: 220px; }
+    .grade-livros .capa-livro { height: clamp(170px, 54vw, 230px); }
+
+    /* Hero compacto lado a lado para reduzir rolagem vertical. */
+    .boas-vindas {
+        grid-template-columns: minmax(0, 1.15fr) minmax(105px, .85fr);
+        align-items: center;
+        gap: 14px;
+        padding: 28px 0 25px;
+        min-height: 0;
+    }
+
+    .boas-vindas h1 { font-size: clamp(23px, 6vw, 32px); line-height: 1.2; letter-spacing: -1px; }
+    .boas-vindas-texto > p { font-size: 11px; line-height: 1.55; }
+    .boas-vindas-arte { height: clamp(145px, 42vw, 210px); min-width: 0; }
+    .selo-edicao { display: none; }
+    .legenda-arte { padding: 9px; font-size: 8px; }
+    .acoes-iniciais { align-items: flex-start; flex-direction: column; gap: 8px; }
+    .acoes-iniciais a { width: 100%; justify-content: center; padding: 10px 8px; font-size: 10px; }
+    .nota-livraria { margin-top: 12px; font-size: 9px; }
+    .secao-categorias, .secao-livros { padding-top: 32px; }
+    .cabecalho-secao { flex-direction: row; align-items: end; justify-content: space-between; gap: 10px; }
+    .cabecalho-secao h2 { font-size: 22px; }
+    .cabecalho-secao > p { display: none; }
+    .barra-filtros { flex-direction: row; align-items: center; flex-wrap: wrap; }
+    .filtros-categoria { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; }
+}
+
+/* Pesquisa: catálogo em grade, com capa e título, sem informações extras. */
+body.busca-ativa .boas-vindas,
+body.busca-ativa .secao-categorias,
+body.busca-ativa #destaques,
+body.busca-ativa .faixa-final,
+body.busca-ativa .rodape {
+    display: none !important;
+}
+
+body.busca-ativa #catalogo {
+    display: block;
+    min-height: calc(100vh - 90px);
+    padding-top: 125px;
+}
+
+body.busca-ativa #catalogo .cabecalho-secao {
+    margin-bottom: 16px;
+}
+
+body.busca-ativa #catalogo .cabecalho-secao > div .sobretitulo,
+body.busca-ativa #catalogo .cabecalho-secao h2,
+body.busca-ativa #catalogo .quantidade-livros,
+body.busca-ativa #catalogo .barra-filtros {
+    display: none !important;
+}
+
+body.busca-ativa .grade-livros {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+    align-items: start;
+    gap: 24px 16px;
+    overflow: visible;
+    padding: 0;
+    scroll-snap-type: none;
+}
+
+body.busca-ativa .grade-livros .card-livro {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    width: 100%;
+    overflow: visible;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    transform: none;
+}
+
+body.busca-ativa .grade-livros .capa-livro {
+    height: auto;
+    aspect-ratio: 3 / 4;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #202020;
+}
+
+body.busca-ativa .grade-livros .capa-livro img {
+    filter: none;
+}
+
+body.busca-ativa .grade-livros .capa-livro::after,
+body.busca-ativa .grade-livros .etiqueta-livro,
+body.busca-ativa .grade-livros .botao-favorito,
+body.busca-ativa .grade-livros .tipo-livro,
+body.busca-ativa .grade-livros .descricao-livro,
+body.busca-ativa .grade-livros .linha-preco {
+    display: none !important;
+}
+
+body.busca-ativa .grade-livros .info-livro { padding: 9px 0 0; }
+body.busca-ativa .grade-livros .info-livro h3 { margin: 0; font-size: 13px; line-height: 1.4; }
+body.busca-ativa .grade-livros .card-livro:hover { border: 0; box-shadow: none; }
+body.busca-ativa .grade-livros .card-livro:hover .capa-livro img { transform: scale(1.03); }
+body.busca-ativa .mensagem-vazia { padding: 30px 0; }
+
+@media (max-width: 600px) {
+    body.busca-ativa #catalogo { padding-top: 95px; }
+    body.busca-ativa .grade-livros { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 10px; }
+    body.busca-ativa .grade-livros .info-livro h3 { font-size: 11px; }
+}
+
+@media (max-width: 360px) {
+    body.busca-ativa .grade-livros { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.grade-livros .card-livro[hidden] { display: none !important; }
+
+.grade-livros:not(.arrastando) { cursor: grab; }
+.grade-livros.arrastando { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+.grade-livros.arrastando img { pointer-events: none; }
